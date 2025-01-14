@@ -14,7 +14,7 @@ function LandingPage() {
           itenaries tailloured at your interest and budget
         </h2>
         <button className="bg-black text-white py-2 px-5 rounded-md">
-          <Link to={"/form"}> Get's Started</Link>
+          <Link to={"/form"}> Get's get Started</Link>
         </button>
       </div>
       <div className="text-center">Image</div>
