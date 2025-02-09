@@ -16,23 +16,26 @@ const Form = () => {
   };
 
   const clickHandler = async () => {
+    console.log("Form Data:", formData);
+
+    // Retrieve token from localStorage (or another secure storage)
+    const token = localStorage.getItem("token");
     try {
       setIsLoading(true);
-      const response = await fetch(
-        "http://localhost:3001/api/generate-itinerary",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const response = await fetch("http://localhost:3001/api/trip/generate", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token ? `Bearer ${token}` : "", // Include token if available
+        },
+        body: JSON.stringify(formData),
+      });
 
       const result = await response.json();
+      console.log(result);
       if (result.success) {
         // Navigate to itinerary page with data
-        navigate("/itinerary", { state: { itineraryData: result.data } });
+        navigate("/itinerary", { state: { itineraryData: result.itinerary } });
       } else {
         throw new Error(result.error || "Failed to generate itinerary");
       }
@@ -82,7 +85,7 @@ const Form = () => {
                 placeholder="Number of days"
                 type="number"
                 min="1"
-                onChange={(e) => handleInput("noofdays", e.target.value)}
+                onChange={(e) => handleInput("duration", e.target.value)}
               />
             </label>
           </div>
@@ -131,17 +134,17 @@ const Form = () => {
                   key={item.id}
                   className={`p-6 rounded-xl border-2 text-center transition-all duration-300 cursor-pointer
                     ${
-                      selectedTravel === item.people
+                      selectedTravel === item.travelers
                         ? "border-indigo-500 bg-indigo-50 shadow-md transform -translate-y-1"
                         : "border-gray-200 hover:border-indigo-300 hover:shadow-md"
                     }`}
                   onClick={() => {
-                    setSelectedTravel(item.people);
-                    handleInput("people", item.people);
+                    setSelectedTravel(item.travelers);
+                    handleInput("travelers", item.travelers);
                   }}
                 >
                   <h3 className="text-lg font-semibold text-gray-800">
-                    {item.people}
+                    {item.travelers}
                   </h3>
                 </div>
               ))}

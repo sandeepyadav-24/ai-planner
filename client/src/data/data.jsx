@@ -3,41 +3,41 @@ const Budget = [
     id: 1,
     link: "<TfiPackage />",
     budgetTitle: "Low",
-    budgetNum: "0 - 1000USD",
+    budgetNum: " Rs 0 - 10,000",
   },
   {
     id: 2,
     link: "<TfiPackage />",
     budgetTitle: "Medium",
-    budgetNum: "1000-2500 USD",
+    budgetNum: "Rs 10,000-25,000 ",
   },
   {
     id: 3,
     link: "<TfiPackage />",
     budgetTitle: "High",
-    budgetNum: "2500+ USD",
+    budgetNum: "Rs 25,000+ ",
   },
 ];
 const Travel = [
   {
     id: 1,
     link: "a",
-    people: "Solo",
+    travelers: "Solo",
   },
   {
     id: 2,
     link: "a",
-    people: "Couple",
+    travelers: "Couple",
   },
   {
     id: 3,
     link: "a",
-    people: "Family ",
+    travelers: "Family ",
   },
   {
     id: 4,
     link: "a",
-    people: "Friends",
+    travelers: "Friends",
   },
 ];
 

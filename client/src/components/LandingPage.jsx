@@ -42,6 +42,25 @@ const LandingPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50">
+      {/* Navigation Bar */}
+      <div className="container mx-auto px-4 py-6 flex justify-between items-center">
+        <h1 className="text-2xl font-bold text-indigo-900">AI Trip Planner</h1>
+        <div className="flex space-x-4">
+          <Link
+            to="/login"
+            className="px-6 py-2 text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 transition-all"
+          >
+            Login
+          </Link>
+          <Link
+            to="/signup"
+            className="px-6 py-2 text-indigo-600 bg-white rounded-lg hover:bg-indigo-50 transition-all"
+          >
+            Sign Up
+          </Link>
+        </div>
+      </div>
+
       {/* Hero Section */}
       <div className="container mx-auto px-4 pt-20 pb-32">
         <div className="max-w-6xl mx-auto text-center">
